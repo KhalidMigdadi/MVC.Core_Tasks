@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "User List"; // Set page title
+    Layout = "_Layout - Admin";
+
+    // Define a dynamic array of users inside the view
+    var users = new[]
+    {
+        new { Id = 1, UserName = "Khalid", age = "20", Email = "khalid@gmail.com" },
+        new { Id = 2, UserName = "Ahmad", age = "30", Email = "ahmad@gmail.com" },
+        new { Id = 3, UserName = "Mahmoud", age = "40", Email = "mahmoud@gmail.com" }
+    };
+}
+
+@section Styles {
+    <link href="~/css/Admin.css" rel="stylesheet" />
+}
+
+
+<div class="container mt-4">
+    <h2 class="mb-4">User List</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.age</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

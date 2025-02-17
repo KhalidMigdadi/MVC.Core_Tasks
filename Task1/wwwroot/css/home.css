@@ -1,0 +1,29 @@
+﻿
+
+
+body {
+    background-color: #ddd;
+}
+
+.card-text {
+    color: red;
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* This centers the .view link horizontally */
+}
+
+.bg-body-tertiary {
+    position: absolute;
+    bottom: 0;
+    width: 100%; /* Ensure it spans the full width */
+}
+
