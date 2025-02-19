@@ -1,6 +1,5 @@
 ﻿using System.Runtime.InteropServices.Marshalling;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http; // Required for Session
 
 
 namespace Task2.Controllers
@@ -58,14 +57,12 @@ namespace Task2.Controllers
         [HttpPost]
         public IActionResult HandleRegister(string Name, string email, string pass, string RPass)
         {
-            // Check if password and repeated password match
             if (pass != RPass)
             {
                 TempData["ErrorMSG"] = "Passwords do not match!";
                 return RedirectToAction("Register");
             }
 
-            // Store user data in Session
             HttpContext.Session.SetString("Name", Name);
             HttpContext.Session.SetString("Email", email);
             HttpContext.Session.SetString("Password", pass);
