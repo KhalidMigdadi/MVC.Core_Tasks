@@ -14,13 +14,11 @@ namespace Task2.Controllers
         [HttpPost]
         public IActionResult HandleLogin(string email, string pass)
         {
-            // Check if user exists in session
             string storedEmail = HttpContext.Session.GetString("Email");
             string storedPassword = HttpContext.Session.GetString("Password");
 
             if (email == storedEmail && pass == storedPassword)
             {
-                // Successfully logged in
                 return RedirectToAction("Index", "Home");
             }
             else
