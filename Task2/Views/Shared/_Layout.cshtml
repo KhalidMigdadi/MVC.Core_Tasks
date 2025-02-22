@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/Task2.styles.css" asp-append-version="true" />
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -18,22 +19,43 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
-                        </li>
+
+                    @{
+                        // Retrieve email from session first, then cookies if session is null
+                        var email = Context.Session.GetString("Email") ?? Context.Request.Cookies["Email"];
+                    }
+
+
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        @if (Context.Session.GetString("_Email") == null && Context.Request.Cookies["userInfo"] == null)
+                        {
+                            <li><a class="nav-link text-dark" href="@Url.Action("Login", "User")">Login</a></li>
+                            <li><a class="nav-link text-dark" href="@Url.Action("Register", "User")">Register</a></li>
+                            
+                        }
+                        else
+                        {
+                            if (Context.Session.GetString("_Email") == "Admin@gmail.com" || Context.Request.Cookies["userInfo"] == "Admin@gmail.com")
+                            {
+                                <li><a class="nav-link text-dark" href="@Url.Action("Admin", "Admin")">Admin</a></li>
+
+                            }
+                           
+                            <!-- Show these links if the user is logged in (session exists) -->
+                            <li><a class="nav-link text-dark" href="@Url.Action("Profile", "User")">Profile</a></li>
+                            <li><a class="nav-link text-dark" href="@Url.Action("Logout", "User")">Logout</a></li>
+                        }
+                        </ul>
+
+
+
+
 
                     </ul>
                 </div>

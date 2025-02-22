@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "_Layout";
 }
 
@@ -11,29 +10,18 @@
                     <div class="d-flex">
                         <div class="flex-shrink-0">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                                 alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px;">
+                                 alt="Profile Picture" class="img-fluid" style="width: 180px; border-radius: 10px;">
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h5 class="mb-1" name="Name">@ViewBag.Name</h5>
-                            <p class="mb-2 pb-1" name="email">@ViewBag.Email</p>
-                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2 bg-body-tertiary">
-                                <div>
-                                    <p class="small text-muted mb-1">Articles</p>
-                                    <p class="mb-0">41</p>
-                                </div>
-                                <div class="px-3">
-                                    <p class="small text-muted mb-1">Followers</p>
-                                    <p class="mb-0">976</p>
-                                </div>
-                                <div>
-                                    <p class="small text-muted mb-1">Rating</p>
-                                    <p class="mb-0">8.5</p>
-                                </div>
-                            </div>
-                            <div class="d-flex pt-1">
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary flex-grow-1">Follow</button>
-                            </div>
+                            <h5 class="mb-1">@ViewBag.Name</h5>
+                            <p class="mb-2 pb-1">@ViewBag.Email</p>
+                            <p class="mb-2 pb-1">@ViewBag.Phone</p>
+                            <p class="mb-2 pb-1">@ViewBag.Address</p>
+
+                            <!-- Button to go to Edit Profile Page -->
+                            <a href="@Url.Action("EditProfile", "User")" class="btn btn-outline-primary mt-3">
+                                Edit Profile
+                            </a>
                         </div>
                     </div>
                 </div>

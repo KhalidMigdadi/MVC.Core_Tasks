@@ -1,8 +1,8 @@
 using System.Diagnostics;
+using _Url.Action.Models;
 using Microsoft.AspNetCore.Mvc;
-using Task2.Models;
 
-namespace Task2.Controllers
+namespace _Url.Action.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,33 +15,13 @@ namespace Task2.Controllers
 
         public IActionResult Index()
         {
-            // Retrieve the user's name from session
-            string userName = HttpContext.Session.GetString("_UserName");
-
-            if (userName != null)
-            {
-                ViewBag.WelcomeMessage = "Welcome, " + userName;
-            }
-            else
-            {
-                ViewBag.WelcomeMessage = "Welcome, Guest";
-            }
-
             return View();
         }
-
-
-
-       
-
-       
 
         public IActionResult Privacy()
         {
             return View();
         }
-
-        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

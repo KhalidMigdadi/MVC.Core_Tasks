@@ -1,20 +1,7 @@
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.Extensions.Options;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews(); 
-
-// here i added the session
-builder.Services.AddDistributedMemoryCache(); // to store the memory cache 
-
-builder.Services.AddSession(Option =>
-{
-    Option.IdleTimeout = TimeSpan.FromMinutes(5); 
-    Option.Cookie.HttpOnly = true; // more secure so its accept Http requests only not by JS its from form HTML
-    Option.Cookie.IsEssential = true; // save cookies without user permission
-});
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -32,9 +19,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseSession();
-
 
 app.MapControllerRoute(
     name: "default",
