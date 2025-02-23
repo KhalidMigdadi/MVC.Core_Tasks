@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model Model.Models.Department
+
+<h1>Create New Department</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" /> @* link the filed with the input *@
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmployeeCount"></label>
+        <input asp-for="EmployeeCount" class="form-control" />
+        <span asp-validation-for="EmployeeCount" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Department</button>
+</form>
+<br>
+
+<a href="@Url.Action("Index", "Department")">Back to Department List</a>
+
