@@ -2,18 +2,22 @@
 
 namespace Model.Models
 {
-
-    // represent the user table
+    // Represents the User table
     public class User
     {
-        public int ID { get; set; }
+        [Key] // Primary key
+        public int Id { get; set; } // columns
 
-        [Required]
-        [StringLength(100)]
+        //[Required(ErrorMessage = "Name is required")]
+        //[StringLength(100, ErrorMessage = "Name cannot be longer than 100 characters")]
         public string Name { get; set; }
 
-        [Required]
-        [EmailAddress]
+        //[Required(ErrorMessage = "Email is required")]
+        //[EmailAddress(ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
+
+
+
+        // Add other properties if needed
     }
 }

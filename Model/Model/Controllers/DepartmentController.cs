@@ -13,9 +13,9 @@ namespace Model.Controllers
         }
         public IActionResult Index()
         {
-            var department = _context.Departments.ToList();
+            var departments = _context.Departments.ToList(); // Get the list of departments from the database
 
-            return View(department);
+            return View(departments);  // Pass it to the view
         }
 
 
@@ -40,5 +40,17 @@ namespace Model.Controllers
             // If the model is invalid, return to the Create page with the entered data
             return View(dep);
         }
+
+
+
+
+
+
+
+
+
+        
+
+
     }
 }

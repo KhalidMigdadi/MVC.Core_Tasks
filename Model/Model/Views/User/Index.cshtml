@@ -1,34 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "User List";
+	ViewData["Title"] = "User List";
 }
 
-@model List<User> // the data from table User and it will return as List and the model is => 
+@model List<User> // the data from table User and it will return as List and the model is => to told
 
 
 <h1>User List</h1>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model) // the data  (users) that passed from index in controller will be insdie Model
-        {
-            <tr>
-              @*   <td>
-                    @Html.DisplayFor(modelItem => user.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => user.Email)
-                </td> *@
-                <td>@user.Name</td>
-                <td>@user.Email</td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+@* 		to use
+ *@		@foreach (var user in Model) // the data  (users) that passed from index in controller will be insdie Model
+		{
+			// user i spointer inside each record in DB
+			<tr>
+			
+				<td>@user.Id</td>
+				<td>@user.Name</td>
+				<td>@user.Email</td>
+				<td>
+					<a asp-action="Edit" asp-controller="User" asp-route-id="@user.Id" class="btn btn-warning">Edit</a>
+				</td>
+			</tr>
+
+
+		}
+	</tbody>
 </table>
 
 <a href="@Url.Action("Create", "User")" class="btn btn-primary">Add New User</a>
+<br />
+<br />
+
