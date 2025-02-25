@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace CardTasks.Models;
+namespace Revision.Models;
 
 public partial class MyDbContext : DbContext
 {

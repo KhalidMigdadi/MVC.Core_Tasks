@@ -71,7 +71,7 @@ namespace Model.Controllers
         public IActionResult Edit(int id) // int id ? => becuase i want to edit one recored only  and its arrive from link
         {
           
-            var user = _context.Users.Find(id); // what is hte data type here 
+            var user = _context.Users.Find(id); // what is hte data type here and find is search on the primary key columns
             return View(user);
         }
 

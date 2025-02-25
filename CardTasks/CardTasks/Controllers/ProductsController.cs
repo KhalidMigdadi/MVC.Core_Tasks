@@ -46,6 +46,14 @@ namespace CardTasks.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+
+
+
+
+
       
 
         public IActionResult Edit(int Id)
